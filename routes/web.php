@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//トップページをタスク一覧のページにする
+Route::get('/', 'TasksController@index');
+
+Route::resource('tasks', 'TasksController');
