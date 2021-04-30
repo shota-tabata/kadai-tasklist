@@ -14,18 +14,16 @@
 //トップページをタスク一覧のページにする
 Route::get('/', 'TasksController@index');
 
+
 Route::resource('tasks', 'TasksController');
 
-/*Route::resourceの中身
-// メッセージの個別詳細ページ表示
-Route::get('messages/{id}', 'MessagesController@show');
-// メッセージの新規登録を処理（新規登録画面を表示するためのものではありません）
-Route::post('messages', 'MessagesController@store');
-// メッセージの更新処理（編集画面を表示するためのものではありません）
-Route::put('messages/{id}', 'MessagesController@update');
-// メッセージを削除
-Route::delete('messages/{id}', 'MessagesController@destroy');
 
-// index: showの補助ページ
-Route::get('messages', 'MessagesController@index');
+//ユーザ登録
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
+/*
+//認証
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login','Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout')->neme('logout.get');
 */
