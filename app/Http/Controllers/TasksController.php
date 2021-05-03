@@ -18,7 +18,6 @@ class TasksController extends Controller
      //タスク一覧
     public function index()
     {
-        
         if (\Auth::check()) {
             
             $tasks = Task::all();
