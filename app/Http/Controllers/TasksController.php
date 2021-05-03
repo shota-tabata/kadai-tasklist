@@ -36,6 +36,7 @@ class TasksController extends Controller
     {
         $task = new Task;
         
+        
         return view('tasks.create', [
             'task' => $task,
             ]);
@@ -55,10 +56,12 @@ class TasksController extends Controller
             'content' => 'required',
             
             ]);
-            
+        
+        
         $task = new Task;
         $task->status = $request->status;
-        $task ->content = $request->content;
+        $task->content = $request->content;
+        $task->user_id = auth()->id();
         $task->save();
         
         return redirect('/');
